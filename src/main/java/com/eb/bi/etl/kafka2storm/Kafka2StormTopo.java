@@ -17,9 +17,9 @@ import storm.kafka.SpoutConfig;
 import storm.kafka.KafkaSpout;
 import storm.kafka.bolt.KafkaBolt;
 
-import org.apache.storm.hbase.bolt.HBaseBolt;
-import org.apache.storm.hbase.bolt.mapper.HBaseMapper;
-import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
+//import org.apache.storm.hbase.bolt.HBaseBolt;
+//import org.apache.storm.hbase.bolt.mapper.HBaseMapper;
+//import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
 
 import java.util.Map;
 import java.util.HashMap;
