@@ -45,7 +45,7 @@ public class Kafka2StormTopo {
 		}
 
 		BrokerHosts brokerHosts = new ZkHosts(zkCfg);
-		SpoutConfig spoutConfig = new SpoutConfig(brokerHosts, topic, "/ebupt", "kafkaspout");
+		SpoutConfig spoutConfig = new SpoutConfig(brokerHosts, topic, "/ebupt", topic);
 		Config conf = new Config();
 		//Map<String, String> map = new HashMap<String, String>() {{
 		//		put("metadata.broker.list", "eb179:9092");
@@ -68,14 +68,14 @@ public class Kafka2StormTopo {
 		//builder.setBolt("hbasebolt", new HBaseBolt("storm2hbase", mapper).withConfigKey("hbase.config")).fieldsGrouping("bolt", new Fields("key"));
 
 		if (args != null && args.length > 2) {
-			conf.setNumWorkers(3);
+			conf.setNumWorkers(1);
 			StormSubmitter.submitTopology(args[0], conf, builder.createTopology());
 		} else {
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology("Topo", conf, builder.createTopology());
-			Utils.sleep(100000);
-			cluster.killTopology("Topo");
-			cluster.shutdown();
+//			Utils.sleep(100000);
+//			cluster.killTopology("Topo");
+//			cluster.shutdown();
 		}
 	}
 }
